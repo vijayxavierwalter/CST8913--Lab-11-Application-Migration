@@ -219,13 +219,37 @@ The database tier is the most critical and will be migrated last.
 
 # ✅ Task 6 – Migration Waves
 
+The migration is planned in multiple waves to reduce risk, maintain application availability, and meet the strict 1-hour downtime requirement.  
+The approach follows a tier-based dependency model, migrating from least critical to most critical components.
+
+## Justification for Grouping
+
+### Dependencies
+- Web Tier depends on Application Tier  
+- Application Tier depends on Database Tier  
+- Sequential migration ensures proper validation  
+
+### Business Criticality
+- SQL01 is the most critical (data layer)  
+- APP01 handles business logic  
+- WEB01/WEB02 are stateless and least critical  
+
+### Downtime Restrictions
+- 1-hour downtime window requires careful sequencing  
+- Database migration is performed last to minimize impact  
+
+### Testing Requirements
+- Web tier can be tested independently  
+- Application tier requires web tier  
+- Database requires full-stack validation  
+
+## Final Migration Waves
+
 | Wave | Servers | Reason |
 |-----|--------|-------|
-| Wave 1 | WEB01, WEB02 | Stateless |
-| Wave 2 | APP01 | Depends on WEB |
-| Wave 3 | SQL01 | High risk |
+| Wave 1 | WEB01, WEB02 | Stateless, low risk, easy rollback |
+| Wave 2 | APP01 | Depends on web tier, moderate risk |
+| Wave 3 | SQL01 | Highest criticality, requires downtime |
 
----
-
-# 🎯 Conclusion
-Migration ensures minimal downtime, cost optimization, and reduced risk.
+## Summary
+This wave-based approach reduces risk, ensures proper dependency handling, and meets downtime constraints.
