@@ -102,12 +102,12 @@ Why:
 
 | Category | Details |
 |---------|--------|
-| Criticality | High |
-| Downtime | 1 hour |
-| Data | Sensitive |
-| Licensing | SQL + Windows |
-| Patching | Monthly |
-| Firewall | Strict rules |
+| business criticality | High |
+| Uptime & downtime requirements | 1 hour |
+| Data classification | Sensitive |
+| Licensing dependencies | SQL + Windows |
+| Patching requirements | Monthly |
+| Firewall & IP considerations | Strict rules |
 
 ---
 
