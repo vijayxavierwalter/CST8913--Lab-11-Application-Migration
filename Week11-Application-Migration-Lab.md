@@ -126,7 +126,7 @@ Why:
 - Use Azure SQL MI
 - Use Availability Zones
 
-## 🔹 Dependency Validation
+## Dependency Validation
 
 All identified dependencies were validated using Azure Migrate dependency mapping and application owner input.
 
