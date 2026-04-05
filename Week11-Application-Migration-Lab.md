@@ -151,6 +151,9 @@ All identified dependencies were validated using Azure Migrate dependency mappin
 - Downtime achievable
 
 ## SQL Options
+- Rehost (SQL on VM): Fastest lift-and-shift with no changes, but requires full management.
+- Azure SQL Managed Instance: Best balance—high compatibility, minimal changes, and fully managed features.
+- Azure SQL Database: Fully managed and scalable, but requires application redesign.
 
 | Option | Notes |
 |-------|------|
