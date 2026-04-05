@@ -170,11 +170,37 @@ All identified dependencies were validated using Azure Migrate dependency mappin
 - Backup systems
 - Configure replication
 
-## Steps
-1. Replicate servers
-2. Test migration
-3. Validate
-4. Go-live
+## Migration Steps (Per Server Group)
+
+#Web Tier (WEB01, WEB02)      
+The web tier will be migrated first as it is stateless and easier to validate.
+- Configure replication for WEB01 and WEB02 using Azure Migrate
+- Perform a test migration and validate web application accessibility
+- Deploy Azure Load Balancer or Application Gateway
+- Attach migrated web servers to the Azure load balancing service
+- Verify connectivity between web servers and the application tier
+- During cutover, stop on-premises web servers and start Azure instances
+- Perform final validation of user access and load balancing behavior
+
+#Application Tier (APP01)   
+The application tier depends on the web tier and must be migrated after it.
+- Enable replication for APP01 using Azure Migrate
+- Conduct a test migration and validate application/API functionality
+- Update configuration settings if required (e.g., service endpoints)
+- Verify communication between web tier and application server
+- During cutover, stop the on-premises application server and start the Azure VM
+- Validate application services, logs, and integrations
+
+#Database Tier (SQL01)    
+The database tier is the most critical and will be migrated last. 
+- Perform compatibility assessment for SQL Server 2017
+- Take a full backup before migration
+- Use Azure Database Migration Service or rehost strategy
+- Execute a test migration and validate schema, data, and performance
+- Pause application writes during final migration (cutover window)
+- Complete final synchronization and bring Azure database online
+- Update application connection strings to point to Azure
+- Validate data integrity, performance, and transactions
 
 ## DNS
 - Update to Azure
