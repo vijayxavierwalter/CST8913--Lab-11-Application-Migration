@@ -172,7 +172,7 @@ All identified dependencies were validated using Azure Migrate dependency mappin
 
 ## Migration Steps (Per Server Group)
 
-# Web Tier (WEB01, WEB02)      
+### Web Tier (WEB01, WEB02)      
 The web tier will be migrated first as it is stateless and easier to validate.
 - Configure replication for WEB01 and WEB02 using Azure Migrate
 - Perform a test migration and validate web application accessibility
@@ -182,7 +182,7 @@ The web tier will be migrated first as it is stateless and easier to validate.
 - During cutover, stop on-premises web servers and start Azure instances
 - Perform final validation of user access and load balancing behavior
 
-# Application Tier (APP01)   
+### Application Tier (APP01)   
 The application tier depends on the web tier and must be migrated after it.
 - Enable replication for APP01 using Azure Migrate
 - Conduct a test migration and validate application/API functionality
@@ -191,7 +191,7 @@ The application tier depends on the web tier and must be migrated after it.
 - During cutover, stop the on-premises application server and start the Azure VM
 - Validate application services, logs, and integrations
 
-# Database Tier (SQL01)    
+### Database Tier (SQL01)    
 The database tier is the most critical and will be migrated last. 
 - Perform compatibility assessment for SQL Server 2017
 - Take a full backup before migration
