@@ -126,6 +126,26 @@ Why:
 - Use Azure SQL MI
 - Use Availability Zones
 
+## 🔹 Dependency Validation
+
+All identified dependencies were validated using Azure Migrate dependency mapping and application owner input.
+
+### ✔️ Confirmed Dependencies
+- Web → App communication (HTTP/HTTPS: 80/443)
+- App → SQL communication (TCP 1433)
+- DNS resolution (internal and external)
+- Active Directory authentication (LDAP/Kerberos)
+- Load balancer routing (internal traffic flow)
+- Backup services connectivity
+- Monitoring and logging agents
+- Firewall rules allowing inter-tier communication
+
+### ✔️ Validation Outcome
+- All critical application paths are accounted for
+- No missing communication flows between tiers
+- Required ports and protocols will be replicated in Azure NSGs
+- External dependencies are confirmed reachable from Azure
+
 ## SLA
 - 99.9%+
 - Downtime achievable
